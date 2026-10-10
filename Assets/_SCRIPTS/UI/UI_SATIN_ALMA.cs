@@ -57,6 +57,11 @@ public class UI_SATIN_ALMA : MonoBehaviour
         AYARLAR.SetReklamVar(!basarili);
         SetDurum();
     }
+    // demo: satın alma düğmeleri gerçek ödeme açmaz, yalnız mesaj gösterir
+    public void DemoReklamKaldir() { DEMO.MesajReklamKaldir(); }
+    public void DemoPremium() { DEMO.MesajPremium(); }
+    public void DemoReklamPremium() { DEMO.MesajPremium(); }
+
     public void EventExit()
     {
         AdControl.instance.CloseBanner();

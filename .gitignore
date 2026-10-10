@@ -58,3 +58,27 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+# ⛔ Claude Code çalışma alanı — GitHub'a gitmez (yedeği 2. beyinde)
+.claude/
+CLAUDE.md
+**/CLAUDE.md
+AGENTS.md
+
+# Kişisel / yerel dosyalar — depo herkese açık (2026-10-10, Sinan'ın kararı: "diğer oyunlar gibi")
+/[Uu]ser[Ss]ettings/
+.DS_Store
+.vscode/
+.idea/
+.plastic/
+
+# Yayın çıktıları ve imza — asla depoya (önleyici)
+*.keystore
+*.jks
+*.aab
+*.symbols.zip
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+*_BurstDebugInformation_DoNotShip/
+
+# Unity/Mono çökme dökümleri — yerel, depoya girmez (2026-10-10)
+mono_crash.*.json

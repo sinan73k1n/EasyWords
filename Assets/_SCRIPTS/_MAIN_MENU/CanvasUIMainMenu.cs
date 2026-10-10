@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class CanvasUIMainMenu : MonoBehaviour
 {
     public static CanvasUIMainMenu instance;
-    [SerializeField] [Range(0f, 3f)] float _delay = 0f;
     [SerializeField] GameObject _goStats;
     [SerializeField] CardOfStatus _resimdenYazi, _sestenYazi, _sestenResim, _yazidanResim, _besX5, _hepsi;
     [Header("Stat Button")]
@@ -112,6 +111,15 @@ public class CanvasUIMainMenu : MonoBehaviour
 
   public  void SetButtonPremium()
     {
+        if (DEMO.AKTIF)
+        {
+            // demo: herkes premium ama düğme görünür kalır; basınca şaka mesajlı premium paneli açılır
+            _premiumButtonAktif = true;
+            _txtPremium.text = "PREMIUM";
+            _txtPremium.color = Color.yellow;
+            _myBtnPremium.SetDurumButton(MyButton.durumButton.basilmadi);
+            return;
+        }
         if (PREMIUM.GetPremiumVar())
         {
             _myBtnPremium.gameObject.SetActive(false); return;
@@ -143,7 +151,7 @@ public class CanvasUIMainMenu : MonoBehaviour
     public void EventPremium()
     {
         if (FindObjectOfType<btnMenuKategori>()) return;
-        if (PREMIUM.GetPremiumGunlukCount() <= 0) return;
+        if (!DEMO.AKTIF && PREMIUM.GetPremiumGunlukCount() <= 0) return;
         Instantiate(GetObje.Hangi(GetObje.objeName.UI_PREMIUM));
     }
     public void HandleCikis()

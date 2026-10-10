@@ -22,7 +22,7 @@ public class UI_PREMIUM : MonoBehaviour
     bool _myButtonAktif = true;
     private void Awake()
     {
-        PREMIUM.PremiumSureKontrol();
+        if (!DEMO.AKTIF) PREMIUM.PremiumSureKontrol();
 
         if ((TEMP._gidilecekSahne == Sahne.Harfler || TEMP._gidilecekSahne == Sahne.Sayilar ||
             TEMP._secilenCategorie == Categories.Karisik || PREMIUM.GetPremiumVar() || PREMIUM.GetPremiumGunlukCalisiyor())
@@ -39,6 +39,16 @@ public class UI_PREMIUM : MonoBehaviour
     }
     private void IlkAyar()
     {
+        if (DEMO.AKTIF)
+        {
+            // demo: düğme hep basılabilir, basınca şaka mesajı çıkar (gerçek reklam yok)
+            _myButtonAktif = true;
+            _txtPremium.text = "AD for Premium";
+            _txtPremium.color = Color.green;
+            _txtHeader.text = "PREMIUM ON";
+            _myBtnPremium.SetDurumButton(MyButton.durumButton.basilmadi);
+            return;
+        }
         PREMIUM.PremiumSureKontrol();
         _count = PREMIUM.GetPremiumGunlukCount();
         _reklamVar = AYARLAR.GetReklamVar();
@@ -78,7 +88,7 @@ public class UI_PREMIUM : MonoBehaviour
     }
     private void Update()
     {
-
+        if (DEMO.AKTIF) return;
         if (_myButtonAktif) return;
         if (PREMIUM.GetPremiumGunlukAlinabilir()) return;
         if (PREMIUM.GetPremiumGunlukCount() <= 0)
@@ -133,6 +143,12 @@ public class UI_PREMIUM : MonoBehaviour
     public void EvetnPremium()
     {
         if (!_myButtonAktif) return;
+        if (DEMO.AKTIF)
+        {
+            DEMO.MesajReklamIzle();
+            _myBtnPremium.SetDurumButton(MyButton.durumButton.basilmadi);
+            return;
+        }
         if (_reklamVar)
         {
             AdControl.instance.ShowOdul();

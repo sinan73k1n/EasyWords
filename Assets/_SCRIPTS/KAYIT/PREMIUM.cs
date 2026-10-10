@@ -7,6 +7,7 @@ public class PREMIUM : MonoBehaviour
 
 
     public static bool GetPremiumVar() {
+        if (DEMO.AKTIF) return true;
         return PlayerPrefs.GetInt("premiumVar", 0) == 1 ? true : false;
     }
     public static void SetPremiumVar(bool deger) { PlayerPrefs.SetInt("premiumVar", deger ? 1 : 0); }
@@ -20,14 +21,14 @@ public class PREMIUM : MonoBehaviour
     public static int GetPremiumGunlukCount() { return PlayerPrefs.GetInt("PremiumgunlukCount", 5); }
     public static void SetPremiumGunlukCount(int count) { PlayerPrefs.SetInt("PremiumgunlukCount", count); }
 
-    public static DateTime GetPremiumAlinacakBirSonrakiSure() { return DateTime.Parse(PlayerPrefs.GetString("PremiumAlinacakBirSonrakiSure", "00:02:00")); }
-    public static void SetPremiumAlinacakBirSonrakiSure(DateTime deger) { PlayerPrefs.SetString("PremiumAlinacakBirSonrakiSure", deger.ToString()); }
+    public static DateTime GetPremiumAlinacakBirSonrakiSure() { return TARIH.Oku(PlayerPrefs.GetString("PremiumAlinacakBirSonrakiSure", ""), DateTime.Today.AddMinutes(2)); }
+    public static void SetPremiumAlinacakBirSonrakiSure(DateTime deger) { PlayerPrefs.SetString("PremiumAlinacakBirSonrakiSure", TARIH.Yaz(deger)); }
 
-    public static DateTime GetPremiumBitmesineKalanSure() { return DateTime.Parse(PlayerPrefs.GetString("PremiumBitmesineKalanSure", "00:02:00")); }
-    public static void SetPremiumBitmesineKalanSure(DateTime deger) { PlayerPrefs.SetString("PremiumBitmesineKalanSure", deger.ToString()); }
+    public static DateTime GetPremiumBitmesineKalanSure() { return TARIH.Oku(PlayerPrefs.GetString("PremiumBitmesineKalanSure", ""), DateTime.Today.AddMinutes(2)); }
+    public static void SetPremiumBitmesineKalanSure(DateTime deger) { PlayerPrefs.SetString("PremiumBitmesineKalanSure", TARIH.Yaz(deger)); }
 
-    public static DateTime GetPremiumBirSonrakiGun() { return DateTime.Parse(PlayerPrefs.GetString("PremiumBirSonrakiGun", DateTime.Now.AddDays(1).ToString())); }
-    public static void SetPremiumBirSonrakiGun(DateTime deger) { PlayerPrefs.SetString("PremiumBirSonrakiGun", deger.ToString()); }
+    public static DateTime GetPremiumBirSonrakiGun() { return TARIH.Oku(PlayerPrefs.GetString("PremiumBirSonrakiGun", ""), DateTime.Now.AddDays(1)); }
+    public static void SetPremiumBirSonrakiGun(DateTime deger) { PlayerPrefs.SetString("PremiumBirSonrakiGun", TARIH.Yaz(deger)); }
 
 
     public static bool GetKayitliGuneEsitVeyaGundenBuyuk(DateTime date) { return date.Date <= DateTime.Now.Date; }
@@ -64,8 +65,8 @@ public class PREMIUM : MonoBehaviour
         SetPremiumGunlukCalisiyor(false);
         SetPremiumGunlukAlinabilir(true);
         SetPremiumGunlukCount(5);
-        SetPremiumAlinacakBirSonrakiSure(DateTime.Parse("00:02:00"));
-        SetPremiumBitmesineKalanSure(DateTime.Parse("00:02:00"));
+        SetPremiumAlinacakBirSonrakiSure(DateTime.Today.AddMinutes(2));
+        SetPremiumBitmesineKalanSure(DateTime.Today.AddMinutes(2));
         SetPremiumBirSonrakiGun(DateTime.Now.AddDays(1));
     }
     public static void DebugAll()

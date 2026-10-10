@@ -74,7 +74,7 @@ public class UI_AYARLAR : MonoBehaviour
 
     private void HandleGizlilik()
     {
-        Application.OpenURL("http://s7-software.com/privacy-EasyWords.html");
+        Application.OpenURL("https://s7-software.top/Privacy/EasyWords");
     }
     private void HandleMail()
     {

@@ -91,12 +91,12 @@ public class Kayit : MonoBehaviour
     {
         if (PlayerPrefs.GetString("YENIGUN") == string.Empty)
         {
-            PlayerPrefs.SetString("YENIGUN", TimeNow().AddDays(1).ToString());
+            PlayerPrefs.SetString("YENIGUN", TARIH.Yaz(TimeNow().AddDays(1)));
             return true;
         }
-        else if (DateTime.Parse(PlayerPrefs.GetString("YENIGUN")).Date <= TimeNow().Date)
+        else if (TARIH.Oku(PlayerPrefs.GetString("YENIGUN"), DateTime.MinValue).Date <= TimeNow().Date)
         {
-            PlayerPrefs.SetString("YENIGUN", TimeNow().AddDays(1).ToString());
+            PlayerPrefs.SetString("YENIGUN", TARIH.Yaz(TimeNow().AddDays(1)));
             return true;
         }
         return false;
@@ -110,14 +110,14 @@ public class Kayit : MonoBehaviour
             int i = Convert.ToInt32(TimeNow().DayOfWeek);
 
             i = 7 - i;
-            PlayerPrefs.SetString("YENIHAFTA", TimeNow().AddDays(i).ToString());
+            PlayerPrefs.SetString("YENIHAFTA", TARIH.Yaz(TimeNow().AddDays(i)));
             return true;
         }
-        else if (DateTime.Parse(PlayerPrefs.GetString("YENIHAFTA")).Date < TimeNow().Date)
+        else if (TARIH.Oku(PlayerPrefs.GetString("YENIHAFTA"), DateTime.MinValue).Date < TimeNow().Date)
         {
             int i = Convert.ToInt32(TimeNow().DayOfWeek);
             i = 7 - i;
-            PlayerPrefs.SetString("YENIHAFTA", TimeNow().AddDays(i).ToString());
+            PlayerPrefs.SetString("YENIHAFTA", TARIH.Yaz(TimeNow().AddDays(i)));
             return true;
         }
         return false;

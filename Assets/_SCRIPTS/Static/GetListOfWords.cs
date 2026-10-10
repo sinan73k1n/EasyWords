@@ -10,8 +10,8 @@ public class GetListOfWords : MonoBehaviour
     "dog","fly","mosquito","bull","wolf","penguin","crow","dinosaur","ox","mule","squirrel","turkey","octopus","parrot","rabbit","shark","bee",
     "cock"};
     
-    static List<string> Jobs = new List<string>() { "writer", "programmer","veterinarian","teacher","secretary","scientist","solider",
-    "reporter","pyschologist","police officer","pilot","photographer","pharmacist","nurse","musician","lawyer","judge","fire fighter",
+    static List<string> Jobs = new List<string>() { "writer", "programmer","veterinarian","teacher","secretary","scientist","soldier",
+    "reporter","psychologist","police officer","pilot","photographer","pharmacist","nurse","musician","lawyer","judge","fire fighter",
     "engineer","designer","dentist","doctor","dancer","baker","cook","astronaut","artist","architect","archeologist",
     "accountant","actor","chemist"};
     
@@ -21,7 +21,7 @@ public class GetListOfWords : MonoBehaviour
     //
     static List<string> Esya = new List<string>() { "book","chalkboard","computer","clock","pencil","scissors",
     "dictionary","pen","chair","paper","chalk","ruler","map","stapler","pencil sharpener","calculator","garbage can","projector","glue",
-    "highlighter","rubber","paper clip","white board","table","compass","protactor","file","ink pen","duster","bag","locker",
+    "highlighter","rubber","paper clip","white board","table","compass","protractor","file","ink pen","duster","bag","locker",
     "notice board", "pencil case",
 
     "balloon", "radio"
@@ -34,12 +34,12 @@ public class GetListOfWords : MonoBehaviour
     
     static List<string> YiyecekIcecek = new List<string>() { "biscuit", "cake", "milkshake", "pizza", "salad", "sandwich", "yoghurt", "coffee",
     "bread","rice","pasta","meat","fish","hamburger","hot-dog","chips","meatball","chicken","steak","soup","cheese","olive","cereal","omelette",
-    "egg","ketchup","honey","jam","pie","ice cream","chocolate","dates","wallut","hazelnut","chestnut","tea","milk","fruit juice",
+    "egg","ketchup","honey","jam","pie","ice cream","chocolate","dates","walnut","hazelnut","chestnut","tea","milk","fruit juice",
     "water","fizzy drinks","lemonade"};
 
     static List<string> MeyveSebze = new List<string>() { "apple","apricot","avocado","banana","blackberry","cherry","coconut","fig","grape",
         "kiwi","mango","nectarine","orange","peach","pear","pineapple","quince","strawberry","lemon","melon","watermelon",
-    "brocolli","cabbage","carrot","cauliflower","corn","cucumber","eggplant","greeenbeen","lettuce","leek","mushroom","onion",
+    "broccoli","cabbage","carrot","cauliflower","corn","cucumber","eggplant","green bean","lettuce","leek","mushroom","onion",
     "pea","potato","pumpkin","radish","tomato","zucchini","pepper","bell pepper","garlic","spinach"};
 
     static List<string> Vucut = new List<string>() { "eye","nose","mouth","ear","cheek","chin","nostril","eyebrow","eyelid","eyelash","lip",
